@@ -9,7 +9,90 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.toggle('active');
         });
     }
+
+    // Wait for components to load, then initialize modern select
+    setTimeout(function() {
+        initializeModernSelect();
+    }, 100);
 });
+
+// Modern Select Dropdown Functionality
+// Find and replace the "Modern Select Dropdown Functionality" section in script.js with this:
+
+// Modern Select Dropdown Functionality
+function initializeModernSelect() {
+    console.log('Initializing modern select...');
+    
+    const selectTrigger = document.querySelector('.select-trigger');
+    const selectDropdown = document.querySelector('.select-dropdown');
+    const selectOptions = document.querySelectorAll('.select-option');
+    const selectText = document.querySelector('.select-text');
+    const hiddenInput = document.getElementById('course-select');
+    const modernSelect = document.querySelector('.modern-select');
+
+    console.log('Elements found:', {
+        selectTrigger: !!selectTrigger,
+        selectDropdown: !!selectDropdown,
+        selectOptions: selectOptions.length,
+        selectText: !!selectText,
+        hiddenInput: !!hiddenInput,
+        modernSelect: !!modernSelect
+    });
+
+    if (!selectTrigger || !selectDropdown || !modernSelect) {
+        console.log('Required elements not found, retrying in 500ms...');
+        setTimeout(initializeModernSelect, 500);
+        return;
+    }
+
+    console.log('Adding event listeners...');
+
+    // Toggle dropdown on trigger click
+    selectTrigger.addEventListener('click', function(e) {
+        console.log('Select trigger clicked!');
+        e.preventDefault();
+        e.stopPropagation();
+        modernSelect.classList.toggle('active');
+        console.log('Dropdown toggled, active class:', modernSelect.classList.contains('active'));
+    });
+
+    // Handle option selection
+    selectOptions.forEach((option, index) => {
+        option.addEventListener('click', function(e) {
+            console.log('Option clicked:', index, this.textContent);
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const value = this.getAttribute('data-value');
+            const text = this.textContent;
+            
+            // Update display text
+            selectText.textContent = text;
+            
+            // Update hidden input
+            if (hiddenInput) {
+                hiddenInput.value = value;
+            }
+            
+            // Close dropdown
+            modernSelect.classList.remove('active');
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (modernSelect && !modernSelect.contains(e.target)) {
+            modernSelect.classList.remove('active');
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside dropdown
+    selectDropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    console.log('Modern select initialized successfully!');
+}
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
