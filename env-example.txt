@@ -1,0 +1,15 @@
+# Email Configuration
+# Use your Gmail address
+EMAIL_USER=your-email@gmail.com
+
+# Use Gmail App Password (not your regular password)
+# To generate app password:
+# 1. Enable 2-factor authentication on your Gmail account
+# 2. Go to Google Account settings
+# 3. Security > 2-Step Verification > App passwords
+# 4. Generate a new app password for "Mail"
+EMAIL_PASS=your-app-password
+
+# Server Configuration
+PORT=3000
+

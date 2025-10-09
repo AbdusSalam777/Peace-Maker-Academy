@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Faizan-e-Quran Academy</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="logo-removebg-preview.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo-removebg-preview.png">
+    <link rel="apple-touch-icon" href="logo-removebg-preview.png">
+    <link rel="shortcut icon" href="logo-removebg-preview.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-page-hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="contact-hero-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23contact-hero-pattern)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .contact-page-hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .contact-page-hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-page-content {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fffe 0%, #f0f8f0 100%);
+        }
+
+        .contact-page-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info-sidebar {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-green) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(30, 95, 63, 0.1);
+            position: sticky;
+            top: 100px;
+        }
+
+        .contact-info-sidebar h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--primary-green);
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-info-sidebar h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(30, 95, 63, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateX(5px);
+            color: var(--primary-green);
+        }
+
+        .contact-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info-item i {
+            color: var(--accent-gold);
+            width: 24px;
+            font-size: 18px;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .contact-form-container {
+            background: linear-gradient(135deg, var(--white) 0%, #fafafa 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+            border: 1px solid rgba(30, 95, 63, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #f4d03f 100%);
+        }
+
+        .contact-form-container h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--primary-green);
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-form-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .whatsapp-contact {
+            background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .whatsapp-contact h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .whatsapp-contact p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: #25d366;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-btn i {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-page-hero h1 {
+                font-size: 36px;
+            }
+            
+            .contact-page-hero p {
+                font-size: 18px;
+            }
+            
+            .contact-page-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info-sidebar {
+                position: static;
+            }
+            
+            .contact-form-container,
+            .contact-info-sidebar {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Faizan-e-Quran</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Page Hero Section -->
+    <section class="contact-page-hero">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
+            <div class="contact-page-hero-content">
+                <h1>Contact Us</h1>
+                <p>Get in touch with us to start your journey of learning the Holy Quran. We're here to help you with enrollment and answer any questions you may have.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page Content -->
+    <section class="contact-page-content">
+        <div class="container">
+            <div class="contact-page-grid">
+                <div class="contact-info-sidebar">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address</strong><br>
+                            213 Susan, Madinah Town, FSD
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +092 312 6692 029
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            faizanequran180@gmail.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Office Hours</strong><br>
+                            Monday - Friday: 9:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 2:00 PM
+                        </div>
+                    </div>
+                    
+                    <div class="whatsapp-contact">
+                        <h4><i class="fab fa-whatsapp"></i> Quick Contact</h4>
+                        <p>For immediate assistance, contact us on WhatsApp</p>
+                        <a href="https://wa.me/923189037132" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Student Registration Form</h2>
+                    
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatherName">Father Name *</label>
+                                <input type="text" id="fatherName" name="fatherName" placeholder="Enter father's name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth *</label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Your Country *</label>
+                                <input type="text" id="country" name="country" placeholder="Enter your country" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="teacherGender">Male or Female Teacher *</label>
+                                <select id="teacherGender" name="teacherGender" required>
+                                    <option value="">Select Teacher Gender</option>
+                                    <option value="male">Male Teacher</option>
+                                    <option value="female">Female Teacher</option>
+                                    <option value="no-preference">No Preference</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="teacherLanguage">Language of Teacher *</label>
+                                <select id="teacherLanguage" name="teacherLanguage" required>
+                                    <option value="">Select Language</option>
+                                    <option value="urdu">Urdu</option>
+                                    <option value="english">English</option>
+                                    <option value="both">Both Urdu & English</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="timing">Preferred Timing *</label>
+                                <select id="timing" name="timing" required>
+                                    <option value="">Select Timing</option>
+                                    <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                    <option value="evening">Evening (4:00 PM - 8:00 PM)</option>
+                                    <option value="night">Night (8:00 PM - 10:00 PM)</option>
+                                    <option value="flexible">Flexible Timing</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="skypeZoom">Skype / Zoom ID *</label>
+                                <input type="text" id="skypeZoom" name="skypeZoom" placeholder="Enter your Skype or Zoom ID" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email ID *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course">Select Course *</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select Course</option>
+                                <option value="qaida">Qaida O Nazra Course</option>
+                                <option value="hifz">Hifz Ul Quran Course</option>
+                                <option value="tafseer">Tafseer Course</option>
+                                <option value="namaz">Namaz Course</option>
+                                <option value="arabic">Arabic Grammar Course</option>
+                                <option value="islamic-beliefs">Islamic Beliefs Course</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Any additional information or special requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Registration
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+            emailjs.init("IO-od1b7zvRPh_b_5");
+        })();
+
+        // Form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data - using standard EmailJS variables
+                    const formData = {
+                        to_name: "Peace Online Academy Admin",
+                        from_name: document.getElementById('name').value,
+                        from_email: document.getElementById('email').value,
+                        message: `New Student Registration at Peace Online Academy
+
+STUDENT DETAILS:
+================
+Name: ${document.getElementById('name').value}
+Father Name: ${document.getElementById('fatherName').value}
+Date of Birth: ${document.getElementById('dateOfBirth').value}
+Country: ${document.getElementById('country').value}
+Email: ${document.getElementById('email').value}
+Skype/Zoom ID: ${document.getElementById('skypeZoom').value}
+
+COURSE PREFERENCES:
+==================
+Selected Course: ${document.getElementById('course').value}
+Teacher Gender: ${document.getElementById('teacherGender').value}
+Teacher Language: ${document.getElementById('teacherLanguage').value}
+Preferred Timing: ${document.getElementById('timing').value}
+
+ADDITIONAL INFORMATION:
+======================
+${document.getElementById('message').value || 'No additional information provided'}
+
+Please contact the student at ${document.getElementById('email').value} to confirm enrollment.
+
+Best regards,
+Peace Online Academy Registration System`
+                    };
+                    
+                    // Show loading state
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Send email using EmailJS
+                    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+                    emailjs.send('service_got0eod', 'template_eevh3cs', formData)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            
+                            // Show success message
+                            showNotification('Registration submitted successfully! We will contact you soon to confirm your enrollment.', 'success');
+                            
+                            // Reset form
+                            form.reset();
+                            
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            
+                            // Show error message
+                            showNotification('Failed to submit registration. Please try again or contact us directly.', 'error');
+                        })
+                        .finally(function() {
+                            // Restore button
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+        });
+
+        // Notification function
+        function showNotification(message, type) {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    </script>
+
+    <style>
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            max-width: 400px;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-weight: 600;
+        }
+
+        .notification-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+        }
+
+        .notification-error {
+            background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+            color: white;
+        }
+
+        .notification-content i {
+            font-size: 18px;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 4px;
+            margin-left: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .notification-close:hover {
+            opacity: 1;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
