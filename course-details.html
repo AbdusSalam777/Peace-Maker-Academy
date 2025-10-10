@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qaida O Nazra Course - Faizan-e-Quran Academy</title>
+    <title>Qaida O Nazra Course - Peace Online Quran Academy</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="logo-removebg-preview.png">
     <link rel="icon" type="image/png" sizes="16x16" href="logo-removebg-preview.png">
@@ -20,7 +20,7 @@
             color: white;
             padding: 120px 0 80px;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .course-hero::before {
@@ -357,13 +357,18 @@
             transition: all 0.3s ease;
             box-shadow: var(--shadow);
             margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
         }
 
         .back-btn:hover {
-            background: var(--primary-green);
-            color: white;
-            transform: translateY(-2px);
+
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+
         }
+    
 
         @media (max-width: 768px) {
             .course-hero-content {

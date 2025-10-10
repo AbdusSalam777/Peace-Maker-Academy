@@ -33,7 +33,7 @@ function createNavigation(currentPage = '') {
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link ${currentPage === 'index.html' ? 'active' : ''}">Home</a></li>
                     <li><a href="about.html" class="nav-link ${currentPage === 'about.html' ? 'active' : ''}">About</a></li>
-                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="index.html#courses" class="nav-link">Courses</a></li>
                     <li><a href="contact.html" class="nav-link ${currentPage === 'contact.html' ? 'active' : ''}">Contact</a></li>
                 </ul>
             </nav>
@@ -67,7 +67,7 @@ function createFooter() {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Faizan-e-Quran Academy</h4>
+                    <h4>Peace Online Quran Academy</h4>
                     <p>We are dedicated to providing quality Islamic education through online Quran learning. Our mission is to help students worldwide connect with the Holy Quran through proper recitation, understanding, and spiritual growth.</p>
                     ${createSocialIcons()}
                 </div>
@@ -77,7 +77,7 @@ function createFooter() {
                     <div class="footer-links">
                         <a href="index.html">Home</a>
                         <a href="about.html">About Us</a>
-                        <a href="#courses">Courses</a>
+                        <a href="index.html#courses">Courses</a>
                         <a href="contact.html">Contact</a>
                         <a href="#register">Register</a>
                     </div>
@@ -107,7 +107,7 @@ function createFooter() {
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Faizan-e-Quran Academy. All Rights Reserved. | Designed with ❤️ for Islamic Education</p>
+                <p>&copy; 2024 Peace Online Quran Academy. All Rights Reserved. | Designed with ❤️ for Islamic Education</p>
             </div>
         </div>
     </footer>
