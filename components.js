@@ -35,6 +35,7 @@ function createNavigation(currentPage = '') {
                     <li><a href="about.html" class="nav-link ${currentPage === 'about.html' ? 'active' : ''}">About</a></li>
                     <li><a href="index.html#courses" class="nav-link">Courses</a></li>
                     <li><a href="contact.html" class="nav-link ${currentPage === 'contact.html' ? 'active' : ''}">Contact</a></li>
+                    <li><a href="privacy-policy.html" class="nav-link ${currentPage === 'privacy-poilicy.html' ? 'active' : ''}">Privacy Policy</a></li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -97,8 +98,8 @@ function createFooter() {
                 <div class="footer-section">
                     <h4>Support</h4>
                     <div class="footer-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
                         <a href="#">FAQs</a>
                         <a href="#">Help Center</a>
                         <a href="#">Student Portal</a>
